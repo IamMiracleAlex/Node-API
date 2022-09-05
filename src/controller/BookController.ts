@@ -21,13 +21,9 @@ export class BookController extends Controller {
         return this.service.getBooks();
     }
 
-    /**
-     * @isInt id id must be a positive integer
-     * @minimum id 1
-    */
-    @Get("{id}")
-    public async GetBookById(@Path() id: number): Promise<Book> {
-        return this.service.getBookById(id);
+    @Get("{uuid}")
+    public async GetBookById(@Path() uuid: string): Promise<Book> {
+        return this.service.getBookById(uuid);
     }
 
     @SuccessResponse("201", "Created")
@@ -37,20 +33,16 @@ export class BookController extends Controller {
         return this.service.createBook(requestBody);
     }
 
-    /**
-    * @isInt id id must be a positive integer
-    * @minimum id 1
-    */
-    @Delete("{id}")
-    public async DeleteBook(@Path() id: number) {
-        return this.service.deleteBook(id);
+    @Delete("{uuid}")
+    public async DeleteBook(@Path() uuid: string) {
+        return this.service.deleteBook(uuid);
     }
 
-    @Patch("{id}")
+    @Patch("{uuid}")
     public async UpdateBook(
-        @Path() id: number,
+        @Path() uuid: string,
         @Body() requestBody): Promise<Book> {
-        return this.service.updateBook(id, requestBody);
+        return this.service.updateBook(uuid, requestBody);
     }
 
     private get service() {

@@ -1,5 +1,4 @@
 import { Book } from "../models/books";
-import { getRepository } from "typeorm";
 import { getMongoRepository } from "typeorm";
 
 
@@ -10,7 +9,7 @@ export class BookService {
         return this.BookRepository.find();
     }
 
-    public async getBookById(id: number): Promise<Book> {
+    public async getBookById(id: string): Promise<Book> {
         return this.BookRepository.findOneOrFail(id);
     }
 
@@ -18,35 +17,25 @@ export class BookService {
         return this.BookRepository.save(requestBody);
     }
 
-    public async deleteBook(id: number): Promise<void> {
+    public async deleteBook(id: string): Promise<void> {
         let BookToRemove = await this.BookRepository.findOne(id);
         if (!BookToRemove) throw new Error('Not found');
         await this.BookRepository.remove(BookToRemove);
     }
 
-    public async updateBook(id: number, requestBody): Promise<Book> {          
-        // try {
-        //     let book = this.BookRepository.findOneOrFail(id)
-        //     console.log(book);
-
-        //     await this.BookRepository.update({id: id}, requestBody);
-            
-        //     return this.BookRepository.findOneOrFail(id);
-        //     // let updatedBook = await this.BookRepository.findOneOrFail(requestBody);
-        //     // return updatedBook;
-        // } catch (err) {
-        //     console.log(err);
-        //     throw new Error("Invalid Input");
-        // }
-
+    public async updateBook(id: string, requestBody): Promise<Book> {          
         try {
-            await this.BookRepository.update({id: id}, requestBody);
-            let updatedBook = await this.BookRepository.findOneOrFail(requestBody);
-            return updatedBook;
+        
+            await this.BookRepository.update(id, requestBody);
+
+            return this.BookRepository.findOneOrFail(id);
+        
         } catch (err) {
             console.log(err);
             throw new Error("Invalid Input");
         }
+
+   
     }
     
 }

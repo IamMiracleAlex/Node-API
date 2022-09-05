@@ -6,11 +6,25 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"ObjectID": {
+				"description": "Create a new ObjectID instance.",
+				"properties": {
+					"generationTime": {
+						"type": "number",
+						"format": "double",
+						"description": "The generation time of this ObjectId instance."
+					}
+				},
+				"required": [
+					"generationTime"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Book": {
 				"properties": {
 					"id": {
-						"type": "number",
-						"format": "double"
+						"$ref": "#/components/schemas/ObjectID"
 					},
 					"name": {
 						"type": "string"
@@ -94,7 +108,7 @@
 				}
 			}
 		},
-		"/books/{id}": {
+		"/books/{uuid}": {
 			"get": {
 				"operationId": "GetBookById",
 				"responses": {
@@ -113,12 +127,10 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "uuid",
 						"required": true,
 						"schema": {
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
+							"type": "string"
 						}
 					}
 				]
@@ -134,12 +146,10 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "uuid",
 						"required": true,
 						"schema": {
-							"format": "int32",
-							"type": "integer",
-							"minimum": 1
+							"type": "string"
 						}
 					}
 				]
@@ -162,11 +172,10 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "id",
+						"name": "uuid",
 						"required": true,
 						"schema": {
-							"format": "double",
-							"type": "number"
+							"type": "string"
 						}
 					}
 				],

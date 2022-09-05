@@ -11,14 +11,13 @@ import app from './app';
 
 
 const port = process.env.PORT || 3000
-const server = process.env.SERVER || 'https://nickl-203103.uc.r.appspot.com'
+const server = process.env.SERVER 
 Resource.validate = validate;
 AdminJS.registerAdapter({ Database, Resource });
 
 
 
 createConnection().then(async connection => {
-
 
         const adminJs = new AdminJS({
             databases: [connection],

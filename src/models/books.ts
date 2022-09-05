@@ -1,7 +1,6 @@
 import {
 	Entity,
 	BaseEntity,
-	PrimaryGeneratedColumn,
 	Column,
     ObjectID, 
     ObjectIdColumn,
@@ -12,11 +11,8 @@ import {
 @Entity()
 export class Book extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
-
-    // @ObjectIdColumn()
-    // id: ObjectID;
+    @ObjectIdColumn()
+    id: ObjectID;
 
     @Column({ length: 200 })
     name: string;

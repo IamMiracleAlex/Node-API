@@ -9,10 +9,18 @@ import * as express from 'express';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
+    "ObjectID": {
+        "dataType": "refObject",
+        "properties": {
+            "generationTime": {"dataType":"double","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "Book": {
         "dataType": "refObject",
         "properties": {
-            "id": {"dataType":"double","required":true},
+            "id": {"ref":"ObjectID","required":true},
             "name": {"dataType":"string","required":true},
             "isbn": {"dataType":"string","required":true},
             "regDate": {"dataType":"datetime","required":true},
@@ -53,11 +61,11 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/books/:id',
+        app.get('/books/:uuid',
 
             function BookController_GetBookById(request: any, response: any, next: any) {
             const args = {
-                    id: {"in":"path","name":"id","required":true,"dataType":"integer","validators":{"isInt":{"errorMsg":"id must be a positive integer"},"minimum":{"value":1}}},
+                    uuid: {"in":"path","name":"uuid","required":true,"dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -99,11 +107,11 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.delete('/books/:id',
+        app.delete('/books/:uuid',
 
             function BookController_DeleteBook(request: any, response: any, next: any) {
             const args = {
-                    id: {"in":"path","name":"id","required":true,"dataType":"integer","validators":{"isInt":{"errorMsg":"id must be a positive integer"},"minimum":{"value":1}}},
+                    uuid: {"in":"path","name":"uuid","required":true,"dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -122,11 +130,11 @@ export function RegisterRoutes(app: express.Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.patch('/books/:id',
+        app.patch('/books/:uuid',
 
             function BookController_UpdateBook(request: any, response: any, next: any) {
             const args = {
-                    id: {"in":"path","name":"id","required":true,"dataType":"double"},
+                    uuid: {"in":"path","name":"uuid","required":true,"dataType":"string"},
                     requestBody: {"in":"body","name":"requestBody","required":true,"dataType":"any"},
             };
 
