@@ -1,15 +1,10 @@
 module.exports = {
-    "type": "postgres",
-    "host": process.env.NICKL_DB_HOST,
-    "port": process.env.NICKL_DB_PORT,
-    "username": process.env.NICKL_DB_USER,
-    "password": process.env.NICKL_DB_PASSWORD,
-    "database": process.env.NICKL_DB_NAME,
+    "type": "mongodb",
+    "url": "mongodb+srv://heckerbella:heckerbella@cluster0.plhjide.mongodb.net/?retryWrites=true&w=majority",
     "synchronize": true,
     "logging": false,
     "entities": [
        "build/src/models/**/*.js"
-
     ],
     "migrations": [
        "src/migration/**/*.ts",
