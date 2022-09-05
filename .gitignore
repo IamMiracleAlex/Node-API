@@ -1,0 +1,20 @@
+# python/django
+.idea/
+__pycache__/
+env/
+db.sqlite3
+
+# general
+.vscode/
+.DS_Store
+
+
+# node/express
+build/
+tmp/
+temp/
+node_modules/
+.env
+
+# just using this to run custom scripts
+scripts.js 
