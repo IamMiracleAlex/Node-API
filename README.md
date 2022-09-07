@@ -17,3 +17,8 @@ N/B: Make sure you have node and postgres installed
 Run this below script if you ever encounter some funny ***Error : Cannot find module*** errors..
 
 `rm -rf node_modules package-lock.json && npm install && npm start`
+
+
+# Routes
+Documentation: `localhost:3000/docs/`
+Admin: `localhost:3000/admin/`
