@@ -1,4 +1,4 @@
-## Awesome Project Build with Typescript, TypeORM, Express, Postgres, etc
+## Awesome Project Build with Typescript, TypeORM, Express, Postgres, and Admin Interface
 
 Steps to run this project:
 
