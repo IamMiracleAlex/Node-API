@@ -1,4 +1,4 @@
-# Awesome Project Build with Typescript, TypeORM, Express, MongoDB etc
+### Awesome Project Build with Typescript, TypeORM, Express, MongoDB etc
 
 Steps to run this project:
 
